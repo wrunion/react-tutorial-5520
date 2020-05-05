@@ -9,13 +9,10 @@ class Form extends Component {
   }
 
   handleChange = event => {
-    const { item, description, price, available } = event.target;
+    const { name, value } = event.target
 
     this.setState({
-      item: item,
-      description: description,
-      price: price, 
-      available: available
+      [name]: value,
     });
   }
 
@@ -35,7 +32,6 @@ class Form extends Component {
             type="text"
             name="item"
             id="item"
-            required
             value={item}
             onChange={this.handleChange}/>
         </label>
@@ -44,27 +40,7 @@ class Form extends Component {
             type="text"
             name="description"
             id="description"
-            required
             value={description}
-            onChange={this.handleChange}/>
-        </label>
-        <label htmlFor="description">Description:
-          <input
-            type="text"
-            name="description"
-            id="description"
-            required
-            value={description}
-            onChange={this.handleChange}/>
-        </label>
-        <label htmlFor="available">Available:
-          <input
-            type="number"
-            min={0}
-            name="available"
-            id="available"
-            required
-            value={available}
             onChange={this.handleChange}/>
         </label>
         <label htmlFor="price">Price:
@@ -73,8 +49,16 @@ class Form extends Component {
             min={0}
             name="price"
             id="price"
-            required
             value={price}
+            onChange={this.handleChange}/>
+        </label>
+        <label htmlFor="available">Available:
+          <input
+            type="number"
+            min={0}
+            name="available"
+            id="available"
+            value={available}
             onChange={this.handleChange}/>
         </label>
         <button value="Submit">Submit</button>
@@ -82,6 +66,5 @@ class Form extends Component {
     );
   }
 }
-
   
 export default Form;

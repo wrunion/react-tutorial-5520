@@ -6,16 +6,21 @@ class DisplayControl extends Component {
   state = {
     formVisible: false,
     itemSelected: null,
-    ownerView: true
+    ownerView: true,
+    masterItemList: []
   }
 
   openAddItemForm = () => {
     this.setState({formVisible: true});
   }
 
-  addItemToInventory = () => {
-    alert('addItemToInventory works');
+  addItemToInventory = (item) => {
+    this.setState({...this.state.masterItemList, item});
   }
+
+  // handleSubmit = character => {
+  //   this.setState({characters: [...this.state.characters, character]});
+  // }
 
 
   render() {

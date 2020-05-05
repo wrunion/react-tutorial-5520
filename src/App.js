@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Table from './Table'
 import Form from './Form'
-import Header from './Header'
-import Footer from './Footer'
+import Header from './Display/Header'
+import Footer from './Display/Footer'
+import DisplayControl from './DisplayControl';
 
 class App extends Component {
   state = {
@@ -30,7 +31,8 @@ class App extends Component {
       <div className="container">
         <Header />
         <Table characterData={characters} removeCharacter={this.removeCharacter} />
-        <Form handleSubmit={this.handleSubmit}/>
+        {/* <Form handleSubmit={this.handleSubmit}/> */}
+        <DisplayControl />
         <Footer />
       </div>
     )

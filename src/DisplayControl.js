@@ -15,7 +15,12 @@ class DisplayControl extends Component {
   }
 
   addItemToInventory = (item) => {
-    this.setState({...this.state.masterItemList, item});
+    // console.log(item);
+    // const masterItemList = [...this.state.masterItemList, item];
+    // this.setState({masterItemList: masterItemList}, console.log(this.state));
+
+    this.setState({masterItemList: [...this.state.masterItemList, item]});
+    // this.setState({masterItemList: this.state.masterItemList.concat(item)});
   }
 
   // handleSubmit = character => {

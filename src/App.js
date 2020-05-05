@@ -4,12 +4,7 @@ import Form from './Form'
 
 class App extends Component {
   state = {
-    characters: [
-      {
-        name: "Joe",
-        job: "Manager"
-      }
-    ]
+    characters: [],
   }
 
   removeCharacter = index => {
@@ -28,7 +23,7 @@ class App extends Component {
     return (
       <div className="container">
         <Table characterData={characters} removeCharacter={this.removeCharacter} />
-        {/* <Form />s */}
+        <Form />
       </div>
     )
   }

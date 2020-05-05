@@ -16,22 +16,24 @@ class Form extends Component {
   }
 
   render() {
-    const {name, job} = this.state;
+    // const {name, job} = this.state;
 
     return (
       <form>
         <label htmlFor="name">Name
           <input
+            type="text"
             name="name"
             id="name"
-            value={name}
+            value={this.name}
             onChange={this.handleChange} />
         </label>
         <label>
           <input
+            type="text"
             name="job"
             id="job"
-            value={job}
+            value={this.job}
             onChange={this.handleChange}/>
         </label>
       </form>

@@ -17,13 +17,16 @@ const TableHeader = () => {
 }
 
 const TableBody = (props) => {
-  const rows = props.itemArray.map((row, index) => {
+  const { item, description, price, available, id } = props;
+  const rows = props.itemArray.map((row) => {
     return (
-      <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.job}</td>
+      <tr key={id}>
+        <td>{row.item}</td>
+        <td>{row.description}</td>
+        <td>{row.available}</td>
+        <td>{row.price}</td>
         <td>
-          <button onClick={() => props.removeItem(index)}>Delete</button>
+          <button onClick={() => props.removeItem(id)}>Delete</button>
         </td>
       </tr>
     );

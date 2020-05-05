@@ -9,7 +9,43 @@ class DisplayControl extends Component {
     formVisible: false,
     itemSelected: null,
     ownerView: true,
-    masterItemList: []
+    masterItemList: [
+      {
+        item: "Green Matcha",
+        description: "A healthy tea that gives you energy and focus",
+        available: 100,
+        price: 20, 
+        id: 1
+        },
+        {
+          item: "Lavender Blend",
+          description: "A soothing blend to wash away worries",
+          available: 100,
+          price: 15,
+          id: 2
+        },
+        {
+          item: "Chamomile",
+          description: "A relaxing tea to help you sleep", 
+          available: 100,
+          price: 10,
+          id: 3
+        }, 
+        {
+          item: "White Jasmine",
+          description: "A sweet blend for focus and health",
+          available: 100,
+          price: 25,
+          id: 4
+        },
+        {
+          item: "Earl Grey",
+          description: "Classic bergamont flavoring",
+          available: 100,
+          price: 10,
+          id: 5
+        }
+    ]
   }
 
   openAddItemForm = () => {
@@ -26,7 +62,7 @@ class DisplayControl extends Component {
   }
 
   render() {
-    const { masterItemList } = this.state;
+    // const { masterItemList } = this.state;
 
     let formView;
 

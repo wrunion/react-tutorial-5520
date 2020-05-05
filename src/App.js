@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Table from './Table'
 import Form from './Form'
+import Header from './Header'
+import Footer from './Footer'
 
 class App extends Component {
   state = {
@@ -26,8 +28,10 @@ class App extends Component {
   
     return (
       <div className="container">
+        <Header />
         <Table characterData={characters} removeCharacter={this.removeCharacter} />
         <Form handleSubmit={this.handleSubmit}/>
+        <Footer />
       </div>
     )
   }

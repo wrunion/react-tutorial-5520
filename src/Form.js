@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-  intialState = {
+  state = {
     name: '',
     job: '',
   }
-  state = this.initialState
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -15,33 +14,36 @@ class Form extends Component {
     });
   }
 
-  submitForm = () => {
+  submitForm = (e) => {
+    e.preventDefault();
     this.props.handleSubmit(this.state)
-    this.setState(this.initialState);
+    this.setState({name: '', job: ''});
   }
 
   render() {
     // const {name, job} = this.state;
 
     return (
-      <form>
-        <label htmlFor="name">Name
+      <form onSubmit={this.submitForm}>
+        <label htmlFor="name">Name:
           <input
             type="text"
             name="name"
             id="name"
-            value={this.name}
+            required
+            value={this.state.name}
             onChange={this.handleChange} />
         </label>
-        <label>
+        <label>Job:
           <input
             type="text"
             name="job"
             id="job"
-            value={this.job}
+            required
+            value={this.state.job}
             onChange={this.handleChange}/>
         </label>
-        <button type="button" value="Submit" onClick={this.submitForm} />
+        <button value="Submit">Submit</button>
       </form>
     );
   }

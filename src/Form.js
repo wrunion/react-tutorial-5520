@@ -2,45 +2,79 @@ import React, { Component } from 'react';
 
 class Form extends Component {
   state = {
-    name: '',
-    job: '',
+    item: '',
+    description: '', 
+    price: null,
+    available: null
   }
 
   handleChange = event => {
-    const { name, value } = event.target;
+    const { item, description, price, available } = event.target;
 
     this.setState({
-      [name]: value,
+      item: item,
+      description: description,
+      price: price, 
+      available: available
     });
   }
 
   submitForm = (e) => {
     e.preventDefault();
     this.props.handleSubmit(this.state)
-    this.setState({name: '', job: ''});
+    this.setState({item: '', description: '', price: null, available: null});
   }
 
   render() {
-    const {name, job} = this.state;
+    const {item, description, price, available} = this.state;
 
     return (
       <form onSubmit={this.submitForm}>
-        <label htmlFor="name">Name:
+        <label htmlFor="item">Item:
           <input
             type="text"
-            name="name"
-            id="name"
+            name="item"
+            id="item"
             required
-            value={name}
-            onChange={this.handleChange} />
+            value={item}
+            onChange={this.handleChange}/>
         </label>
-        <label>Job:
+        <label htmlFor="description">Description:
           <input
             type="text"
-            name="job"
-            id="job"
+            name="description"
+            id="description"
             required
-            value={job}
+            value={description}
+            onChange={this.handleChange}/>
+        </label>
+        <label htmlFor="description">Description:
+          <input
+            type="text"
+            name="description"
+            id="description"
+            required
+            value={description}
+            onChange={this.handleChange}/>
+        </label>
+        <label htmlFor="available">Available:
+          <input
+            type="number"
+            min={0}
+            name="available"
+            id="available"
+            required
+            value={available}
+            onChange={this.handleChange}/>
+        </label>
+        <label htmlFor="price">Price:
+          <input
+            type="number"
+            min={0}
+            name="price"
+            id="price"
+            required
+            value={price}
             onChange={this.handleChange}/>
         </label>
         <button value="Submit">Submit</button>

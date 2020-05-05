@@ -31,7 +31,6 @@ class App extends Component {
       <div className="container">
         <Header />
         <Table characterData={characters} removeCharacter={this.removeCharacter} />
-        {/* <Form handleSubmit={this.handleSubmit}/> */}
         <DisplayControl />
         <Footer />
       </div>

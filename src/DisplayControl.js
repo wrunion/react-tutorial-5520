@@ -13,13 +13,16 @@ class DisplayControl extends Component {
     this.setState({formVisible: true});
   }
 
+  addItemToInventory = () => {
+    alert('addItemToInventory works');
+  }
 
 
   render() {
     let formView;
 
     this.state.formVisible ? 
-      formView = <Form /> : 
+      formView = <Form handleSubmit={this.addItemToInventory}/> : 
       formView = <Button buttonText="Add Item" handleClick={this.openAddItemForm} />;
 
     return (

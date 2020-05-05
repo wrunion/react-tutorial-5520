@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Form from './Form';
 import Button from './Button';
+import Table from './Table';
+import { v4 } from 'uuid';
 
 class DisplayControl extends Component {
   state = {
@@ -14,21 +16,18 @@ class DisplayControl extends Component {
     this.setState({formVisible: true});
   }
 
-  addItemToInventory = (item) => {
-    // console.log(item);
-    // const masterItemList = [...this.state.masterItemList, item];
-    // this.setState({masterItemList: masterItemList}, console.log(this.state));
-
-    this.setState({masterItemList: [...this.state.masterItemList, item]});
-    // this.setState({masterItemList: this.state.masterItemList.concat(item)});
-  }
-
-  // handleSubmit = character => {
-  //   this.setState({characters: [...this.state.characters, character]});
+  // closeAddItemForm = () => {
+  //   this.setState({formVisible: false});
   // }
 
+  addItemToInventory = (item) => {
+    item = {...item, id: v4()}
+    this.setState({masterItemList: [...this.state.masterItemList, item]});
+  }
 
   render() {
+    const { masterItemList } = this.state;
+
     let formView;
 
     this.state.formVisible ? 
@@ -37,6 +36,8 @@ class DisplayControl extends Component {
 
     return (
       <div className="container">
+      <Table 
+        itemArray={this.state.masterItemList} removeItem={this.removeItem} />
         {formView}
       </div>
     )

@@ -1,4 +1,5 @@
 import React from 'react'
+import DisplayControl from './DisplayControl';
 import './index.css';
 
 const TableHeader = () => {
@@ -16,13 +17,13 @@ const TableHeader = () => {
 }
 
 const TableBody = (props) => {
-  const rows = props.characterData.map((row, index) => {
+  const rows = props.itemArray.map((row, index) => {
     return (
       <tr key={index}>
         <td>{row.name}</td>
         <td>{row.job}</td>
         <td>
-          <button onClick={() => props.removeCharacter(index)}>Delete</button>
+          <button onClick={() => props.removeItem(index)}>Delete</button>
         </td>
       </tr>
     );
@@ -31,12 +32,12 @@ const TableBody = (props) => {
 }
 
 const Table = props => {
-  const { characterData, removeCharacter } = props;
+  const { itemArray, removeItem } = props;
 
     return (
       <table>
         <TableHeader />
-        <TableBody characterData={characterData} removeCharacter={removeCharacter}/>
+        <TableBody itemArray={itemArray} removeItem={removeItem}/>
       </table>
     );
 }

@@ -18,7 +18,7 @@ class Form extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    // console.log(this.state);
+    console.log(this.state);
     this.props.handleSubmit(this.state);
     this.setState({item: '', description: '', price: '', available: ''});
   }

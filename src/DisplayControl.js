@@ -52,7 +52,7 @@ class DisplayControl extends Component {
     this.setState({formVisible: true});
   }
 
-  // reduceByOne = (id) => {
+  // handlePurchase = (id) => {
   //   const itemToChange = masterItemList.filter((id, i) => {
   //     return i === id;
   //   });
@@ -61,10 +61,10 @@ class DisplayControl extends Component {
   //     }
   //   });
   // }
-  reduceByOne = (e) => {
+  handlePurchase = (e) => {
     const id = e.target.id;
     console.log(id);
-    
+
     const newMasterItemList = this.state.masterItemList.map(item => {
       if (item.id === id) {
         return {
@@ -134,7 +134,7 @@ class DisplayControl extends Component {
       <Table 
         itemArray={this.state.masterItemList} 
         removeItem={this.removeItem}
-        purchaseItem={this.reduceByOne} />
+        handlePurchase={this.handlePurchase} />
         {formView}
       </div>
     )

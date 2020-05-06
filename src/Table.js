@@ -16,9 +16,8 @@ const TableHeader = () => {
 }
 
 const TableBody = (props) => {
-  // const { item, description, price, available, id, purchaseItem } = props;
 
-  const { itemArray, purchaseItem } = props;
+  const { itemArray, handlePurchase,removeItem } = props;
 
   const rows = itemArray.map((row) => {
     return (
@@ -28,8 +27,9 @@ const TableBody = (props) => {
         <td>{row.price}</td>
         <td>{row.available}</td>
         <td>
-          <button id={row.id} onClick={purchaseItem}>Purchase</button>
+          <button id={row.id} onClick={handlePurchase}>Purchase</button>
         </td>
+        <td><button id={row.id} onClick={removeItem}>Delete</button></td>
   
         {/* <td>
           <button onClick={() => props.editItem(id)}>Edit</button>
@@ -44,13 +44,13 @@ const TableBody = (props) => {
 }
 
 const Table = props => {
-  const { itemArray, removeItem, purchaseItem } = props;
+  const { itemArray, removeItem, handlePurchase } = props;
 
     return (
       <table>
         <TableHeader />
         <TableBody itemArray={itemArray} removeItem={removeItem}
-        purchaseItem={purchaseItem}/>
+        handlePurchase={handlePurchase}/>
       </table>
     );
 }

@@ -52,6 +52,65 @@ class DisplayControl extends Component {
     this.setState({formVisible: true});
   }
 
+  // reduceByOne = (id) => {
+  //   const itemToChange = masterItemList.filter((id, i) => {
+  //     return i === id;
+  //   });
+  //   this.setState({
+  //     itemToChange.available: available -1
+  //     }
+  //   });
+  // }
+  reduceByOne = (e) => {
+    const id = e.target.id;
+    console.log(id);
+    
+    const newMasterItemList = this.state.masterItemList.map(item => {
+      if (item.id === id) {
+        return {
+          item: item.item,
+          description: item.description,
+          available: item.available - 1,
+          price: item.price, 
+          id: item.id
+        } 
+      } else {
+        return item;
+      }
+    })
+      
+    this.setState({ masterItemList: newMasterItemList })
+  };
+
+  removeItem = id => {
+    const { masterItemList } = this.state
+  
+    this.setState({
+      masterItemList: masterItemList.filter((masterItemList, i) => {
+        return i !== id
+      }),
+    })
+  }
+
+  // subtractOneFromInventory = (e) => {
+  //   const id = e.target.id;
+
+  //   const newItemArray = this.state.itemArray.map(item => {
+  //     if (item.id === id) {
+  //       return {
+  //         name: item.name,
+  //         description: item.description,
+  //         available: item.available - 1,
+  //         price: item.price, 
+  //         id: item.id
+  //       } 
+  //     } else {
+  //       return item;
+  //     }
+  //   })
+      
+  //   this.setState({ itemArray: newItemArray })
+  // };
   // closeAddItemForm = () => {
   //   this.setState({formVisible: false});
   // }
@@ -73,7 +132,9 @@ class DisplayControl extends Component {
     return (
       <div className="container">
       <Table 
-        itemArray={this.state.masterItemList} removeItem={this.removeItem} />
+        itemArray={this.state.masterItemList} 
+        removeItem={this.removeItem}
+        purchaseItem={this.reduceByOne} />
         {formView}
       </div>
     )
